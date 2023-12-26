@@ -1,7 +1,11 @@
-import React from 'react';
+const SmallBookListItem = ({ book }: any) => {
+  const { name, price } = book;
 
-const SmallListItems = () => {
-  return <div></div>;
+  return (
+    <h2>
+      {name} / {price}
+    </h2>
+  );
 };
 
-export default SmallListItems;
+export default SmallBookListItem;
