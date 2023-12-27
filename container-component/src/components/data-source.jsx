@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const DataSource = ({ getData = () => {}, resourceName, children }) => {
+const DataSource = ({ getData = () => {}, resourceName, render }) => {
   const [resource, setResource] = useState(null)
 
   useEffect(() => { 
