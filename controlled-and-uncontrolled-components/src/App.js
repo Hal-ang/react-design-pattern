@@ -1,20 +1,61 @@
-import { ControlledModal } from './components/ControlledModal';
-import { useState } from 'react';
+import UncontrolledFlow from './components/UncontrolledFlow';
 
-function App() {
-  const [shouldDisplay, setShouldDisplay] = useState(false);
-
+const StepOne = ({ goNext }) => {
   return (
     <>
-      <ControlledModal
-        shouldDisplay={shouldDisplay}
-        onClose={() => setShouldDisplay(false)}
+      <h1>Step #1</h1>
+      <button
+        onClick={() => {
+          goNext({ name: 'MyName' });
+        }}
       >
-        <h3>I am the body of th modal!!!</h3>
-      </ControlledModal>
-      <button onClick={() => setShouldDisplay((prev) => !prev)}>
-        {shouldDisplay ? 'Hide Modal' : 'Display Modal'}
+        Next
       </button>
+    </>
+  );
+};
+const StepTwo = ({ goNext }) => {
+  return (
+    <>
+      <h1>Step #2</h1>
+      <button
+        onClick={() => {
+          goNext({ age: 'Age' });
+        }}
+      >
+        Next
+      </button>
+    </>
+  );
+};
+const StepThree = ({ goNext }) => {
+  return (
+    <>
+      <h1>Step #3 Enter your country</h1>
+      <button
+        onClick={() => {
+          goNext({ country: 'Mars' });
+        }}
+      >
+        Next
+      </button>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <>
+      <UncontrolledFlow
+        onDone={(data) => {
+          console.log(data);
+          alert('Yaee, you made it to the final step!');
+        }}
+      >
+        <StepOne />
+        <StepTwo />
+        <StepThree />
+      </UncontrolledFlow>
     </>
   );
 }
