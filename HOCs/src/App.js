@@ -1,12 +1,13 @@
 import { UserInfo } from './components/user-info';
+import { includeUser } from './components/include-user';
 import { logProps } from './components/log-props';
 
-const UserInfoWrapper = logProps(UserInfo);
+const UserInfoWithLoader = includeUser(UserInfo, '3');
 
 function App() {
   return (
     <>
-      <UserInfoWrapper test={'test'} b='i am b' c={21} />
+      <UserInfoWithLoader />
     </>
   );
 }
