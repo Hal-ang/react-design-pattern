@@ -1,6 +1,7 @@
+import { includeUpdatableResource } from './include-updatable-resource';
 import { includeUpdatableUser } from './include-updatable-user';
 
-export const UserInfoForm = includeUpdatableUser(({user, onChangeUser, onPostUser, onResetUser}) => {
+export const UserInfoForm = includeUpdatableResource(({user, onChangeUser, onPostUser, onResetUser}) => {
   const { name, age } = user || {};
 
   return user ? (
@@ -15,4 +16,4 @@ export const UserInfoForm = includeUpdatableUser(({user, onChangeUser, onPostUse
       <button onClick={onPostUser}>Save</button>
     </>
   ) : <h3>Loading...</h3>
-}, "3")
+}, '/users/2', 'user')
