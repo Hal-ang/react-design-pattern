@@ -1,12 +1,12 @@
-import { checkProps } from "./components/check-props";
-import { UserInfo } from "./components/user-info";
+import { UserInfo } from './components/user-info';
+import { logProps } from './components/log-props';
 
-const UserInfoWrapper = checkProps(UserInfo);
+const UserInfoWrapper = logProps(UserInfo);
 
 function App() {
   return (
     <>
-      <UserInfoWrapper propA="test1" blabla={{ a: 1, age: 23 }} />
+      <UserInfoWrapper test={'test'} b='i am b' c={21} />
     </>
   );
 }
