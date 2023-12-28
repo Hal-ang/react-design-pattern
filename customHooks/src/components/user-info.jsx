@@ -1,8 +1,10 @@
 import { useCurrentUser } from "./current-user.hook";
+import { useUser } from './user.hook';
 
-export const UserInfo = () => {
-  const user = useCurrentUser();
+export const UserInfo = ({userId}) => {
+  const user = useUser(userId);
   const { name, age, country, books } = user || {};
+  
   return user ? (
     <>
       <h2>{name}</h2>
